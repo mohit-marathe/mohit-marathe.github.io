@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Mohit Marathe</title>
+    <link>https://mohit-marathe.github.io/posts/</link>
+    <description>Recent content in Posts on Mohit Marathe</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>© 2025, Mohit Marathe. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 27 Oct 2025 18:30:52 +0530</lastBuildDate>
+    <atom:link href="https://mohit-marathe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Supporting Per-Slide Size Support in Impress</title>
+      <link>https://mohit-marathe.github.io/posts/impress-multiple-slide-size/</link>
+      <pubDate>Mon, 27 Oct 2025 18:30:52 +0530</pubDate>
+      <guid>https://mohit-marathe.github.io/posts/impress-multiple-slide-size/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

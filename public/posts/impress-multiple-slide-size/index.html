@@ -1,0 +1,495 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Supporting Per-Slide Size Support in Impress &middot; Mohit Marathe</title>
+    <meta name="title" content="Supporting Per-Slide Size Support in Impress &middot; Mohit Marathe" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="https://mohit-marathe.github.io/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://mohit-marathe.github.io/css/main.bundle.min.c14c90a2573388010b2e777a82bee53d8e13cc0a4c7b4f79c3128b37946ae06a.css"
+    integrity="sha256-wUyQolcziAELLnd6gr7lPY4TzApMe095wxKLN5Rq4Go="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/">
+  <meta property="og:site_name" content="Mohit Marathe">
+  <meta property="og:title" content="Supporting Per-Slide Size Support in Impress">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-27T18:30:52+05:30">
+    <meta property="article:modified_time" content="2025-10-27T18:30:52+05:30">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Supporting Per-Slide Size Support in Impress">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Supporting Per-Slide Size Support in Impress",
+    "headline": "Supporting Per-Slide Size Support in Impress",
+    
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/mohit-marathe.github.io\/posts\/impress-multiple-slide-size\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-27T18:30:52\u002b05:30",
+    "datePublished": "2025-10-27T18:30:52\u002b05:30",
+    
+    "dateModified": "2025-10-27T18:30:52\u002b05:30",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "496"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://mohit-marathe.github.io/",
+       "name": "Mohit Marathe",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://mohit-marathe.github.io/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Supporting per Slide Size Support in Impress",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Mohit Marathe</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                
+                
+              
+            </li>
+          
+            
+              
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Supporting Per-Slide Size Support in Impress
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-27 18:30:52 &#43;0530 IST">27 October 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <h2 id="overview" class="relative group">Overview <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#</a></span></h2><p>Previously, Impress only allowed a single size for the whole presentation (even in <code>.odp</code>). The <a href="https://www.oasis-open.org/standard/opendocumentv1-2/" target="_blank" rel="noreferrer">ODF standard</a>, however, does not impose such restrictions.
+Supporting differently-sized slides in a presentation is the first step towards implementing <a href="https://nlnet.nl/project/InfiniteCanvas/" target="_blank" rel="noreferrer">Infinite Canvas</a> in <a href="https://www.collaboraonline.com/" target="_blank" rel="noreferrer">Collabora Online</a>.
+LibreOffice will also benefit from this feature.</p>
+<p>Thanks to <a href="https://nlnet.nl/" target="_blank" rel="noreferrer">nlnet Foundation</a> for sponsoring this project!</p>
+<h2 id="implementation" class="relative group">Implementation <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#implementation" aria-label="Anchor">#</a></span></h2><h3 id="where-are-slide-sizes-stored" class="relative group">Where are slide sizes stored? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#where-are-slide-sizes-stored" aria-label="Anchor">#</a></span></h3><p>An ODP file is essentially a ZIP archive containing several XML files and resources.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── Configurations2
+</span></span><span class="line"><span class="cl">├── content.xml
+</span></span><span class="line"><span class="cl">├── META-INF
+</span></span><span class="line"><span class="cl">│   └── manifest.xml
+</span></span><span class="line"><span class="cl">├── meta.xml
+</span></span><span class="line"><span class="cl">├── mimetype
+</span></span><span class="line"><span class="cl">├── settings.xml
+</span></span><span class="line"><span class="cl">├── styles.xml
+</span></span><span class="line"><span class="cl">└── Thumbnails
+</span></span><span class="line"><span class="cl">    └── thumbnail.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">4</span> directories, <span class="m">7</span> files
+</span></span></code></pre></div><p><code>styles.xml</code> contains <code>&lt;style:page-layout&gt;</code> which specifies formatting properties of a page. It has a child element <code>&lt;style:page-layout-properties&gt;</code> which contains the width &amp; height of a page.
+This page-layout element is referenced by <code>&lt;style:master-page&gt;</code> which represents a master page.
+Now, the slide in the presentation document is represented by <code>&lt;draw:page&gt;</code> element which resides in <code>content.xml</code>. The slide inherits the width &amp; height from the master page.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_47271f332e4805cc.webp 330w,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_7233452640d0c7f8.webp 660w
+            
+              ,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_b7f8ac276fe30d7.webp 1024w
+            
+            
+              
+                ,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_29ecf05f0cb8f65c.webp 1096w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1096"
+        height="965"
+        class="mx-auto my-0 rounded-md"
+        alt="Diagram"
+        loading="lazy" decoding="async"
+        
+          src="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_c1c05a2c651a881b.jpg" srcset="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_9ec1689a7b2783fd.jpg 330w,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_c1c05a2c651a881b.jpg 660w
+          
+            ,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram_hu_c1fe956316ed4dc5.jpg 1024w
+          
+          
+            ,https://mohit-marathe.github.io/posts/impress-multiple-slide-size/diagram.jpg 1096w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>So to have multiple sized slides, new master pages needed to be created when the user resized a single slide <a href="#commit-2">[2]</a>. However, this wasn&rsquo;t enough as if you had save the file &amp; re-open it, all the slides would have same size.
+This was because while importing the file, Impress used to force all the master-pages to have same size. So this needed to be fixed as well <a href="#commit-1">[1]</a>.
+After these patches, multiple-sized files were possible in Impress. Now this should work perfectly in Collabora Online as well.</p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="right-right-meme.jpg" alt="Meme" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Or so I thought. You see, just like the import, there were multiple places in the codebase where it was assumed that all the pages in the file have same size. One such place was LibreOfficeKit (LOK), which is an API used by Collabora Online
+to communicate with LibreOffice (see <a href="https://sdk.collaboraonline.com/docs/architecture.html" target="_blank" rel="noreferrer">https://sdk.collaboraonline.com/docs/architecture.html</a> for how it works). Since LOK tells the client that all the pages have same size, the client would just cut off the content of a page having bigger size.
+The initial solution was to trick the client that the document has been resized when it switched to a page having differnt size, so that it would render the page properly, but there was a side-effect. It invalidated all the previews in the slide-sorter which would
+force it to re-render each time the user switched to a different-sized slide, which is unnecessary and quite expensive. So the idea is to send a status update which the client would handle by setting the correct view size for the page <a href="#commit-3">[3]</a>,
+<a href="#commit-4">[4]</a>, <a href="#commit-5">[5]</a>.</p>
+<p>The commits for this feature:</p>
+<p><a id="commit-1"></a>[1] <a href="https://gerrit.libreoffice.org/c/core/&#43;/191523" target="_blank" rel="noreferrer">sd: don&rsquo;t force all the master pages to have same size while importing</a></p>
+<p><a id="commit-2"></a>[2] <a href="https://gerrit.libreoffice.org/c/core/&#43;/191524" target="_blank" rel="noreferrer">cool#13066 support multiple slide size in Impress</a></p>
+<p><a id="commit-3"></a>[3] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192004" target="_blank" rel="noreferrer">lok: handle switching to page having different size</a></p>
+<p><a id="commit-4"></a>[4] <a href="https://github.com/CollaboraOnline/online/pull/13121" target="_blank" rel="noreferrer">Impress: fix preview rendering when switching to a page having different size</a></p>
+<p><a id="commit-5"></a>[5] <a href="https://github.com/CollaboraOnline/online/pull/13266" target="_blank" rel="noreferrer">Impress: initialize preview size according to it&rsquo;s page size</a></p>
+<p><a id="commit-6"></a>[6] <a href="https://github.com/CollaboraOnline/online/pull/13211" target="_blank" rel="noreferrer">slideshow: re-calculate canvas size if the slide has different size</a></p>
+<!-- <video width="640" height="360" controls> -->
+<!--   <source src="myvideo.mp4" type="video/mp4"> -->
+<!--   Your browser does not support the video tag. -->
+<!-- </video> -->
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+    <div class="place-self-center">
+      
+      
+      <div class="text-2xl sm:text-lg">
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            © 2025, Mohit Marathe. All rights reserved.
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>
