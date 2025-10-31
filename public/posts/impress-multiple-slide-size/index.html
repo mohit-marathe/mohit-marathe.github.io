@@ -116,7 +116,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "496"
+    "wordCount": "501"
   }
   </script>
     
@@ -299,7 +299,7 @@
 Supporting differently-sized slides in a presentation is the first step towards implementing <a href="https://nlnet.nl/project/InfiniteCanvas/" target="_blank" rel="noreferrer">Infinite Canvas</a> in <a href="https://www.collaboraonline.com/" target="_blank" rel="noreferrer">Collabora Online</a>.
 LibreOffice will also benefit from this feature.</p>
 <p>Thanks to <a href="https://nlnet.nl/" target="_blank" rel="noreferrer">nlnet Foundation</a> for sponsoring this project!</p>
-<h2 id="implementation" class="relative group">Implementation <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#implementation" aria-label="Anchor">#</a></span></h2><h3 id="where-are-slide-sizes-stored" class="relative group">Where are slide sizes stored? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#where-are-slide-sizes-stored" aria-label="Anchor">#</a></span></h3><p>An ODP file is essentially a ZIP archive containing several XML files and resources.</p>
+<h2 id="implementation" class="relative group">Implementation <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#implementation" aria-label="Anchor">#</a></span></h2><p>An ODP file is essentially a ZIP archive containing several XML files and resources.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
 </span></span><span class="line"><span class="cl">├── Configurations2
 </span></span><span class="line"><span class="cl">├── content.xml
@@ -401,6 +401,10 @@ to communicate with LibreOffice (see <a href="https://sdk.collaboraonline.com/do
 The initial solution was to trick the client that the document has been resized when it switched to a page having differnt size, so that it would render the page properly, but there was a side-effect. It invalidated all the previews in the slide-sorter which would
 force it to re-render each time the user switched to a different-sized slide, which is unnecessary and quite expensive. So the idea is to send a status update which the client would handle by setting the correct view size for the page <a href="#commit-3">[3]</a>,
 <a href="#commit-4">[4]</a>, <a href="#commit-5">[5]</a>.</p>
+<h2 id="demo" class="relative group">Demo <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#demo" aria-label="Anchor">#</a></span></h2><video width="640" height="360" controls>
+  <source src="demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <p>The commits for this feature:</p>
 <p><a id="commit-1"></a>[1] <a href="https://gerrit.libreoffice.org/c/core/&#43;/191523" target="_blank" rel="noreferrer">sd: don&rsquo;t force all the master pages to have same size while importing</a></p>
 <p><a id="commit-2"></a>[2] <a href="https://gerrit.libreoffice.org/c/core/&#43;/191524" target="_blank" rel="noreferrer">cool#13066 support multiple slide size in Impress</a></p>
@@ -408,10 +412,6 @@ force it to re-render each time the user switched to a different-sized slide, wh
 <p><a id="commit-4"></a>[4] <a href="https://github.com/CollaboraOnline/online/pull/13121" target="_blank" rel="noreferrer">Impress: fix preview rendering when switching to a page having different size</a></p>
 <p><a id="commit-5"></a>[5] <a href="https://github.com/CollaboraOnline/online/pull/13266" target="_blank" rel="noreferrer">Impress: initialize preview size according to it&rsquo;s page size</a></p>
 <p><a id="commit-6"></a>[6] <a href="https://github.com/CollaboraOnline/online/pull/13211" target="_blank" rel="noreferrer">slideshow: re-calculate canvas size if the slide has different size</a></p>
-<!-- <video width="640" height="360" controls> -->
-<!--   <source src="myvideo.mp4" type="video/mp4"> -->
-<!--   Your browser does not support the video tag. -->
-<!-- </video> -->
 
       </div>
     </section>

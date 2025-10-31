@@ -13,7 +13,6 @@ LibreOffice will also benefit from this feature.
 Thanks to [nlnet Foundation](https://nlnet.nl/) for sponsoring this project!
 
 ## Implementation
-### Where are slide sizes stored?
 
 An ODP file is essentially a ZIP archive containing several XML files and resources.
 ```bash
@@ -50,6 +49,13 @@ The initial solution was to trick the client that the document has been resized 
 force it to re-render each time the user switched to a different-sized slide, which is unnecessary and quite expensive. So the idea is to send a status update which the client would handle by setting the correct view size for the page [[3]](#commit-3),
 [[4]](#commit-4), [[5]](#commit-5).
 
+## Demo
+
+<video width="640" height="360" controls>
+  <source src="demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 The commits for this feature:
 
 <a id="commit-1"></a>[1] [sd: don't force all the master pages to have same size while importing](https://gerrit.libreoffice.org/c/core/+/191523)
@@ -64,8 +70,4 @@ The commits for this feature:
 
 <a id="commit-6"></a>[6] [slideshow: re-calculate canvas size if the slide has different size](https://github.com/CollaboraOnline/online/pull/13211)
 
-<!-- <video width="640" height="360" controls> -->
-<!--   <source src="myvideo.mp4" type="video/mp4"> -->
-<!--   Your browser does not support the video tag. -->
-<!-- </video> -->
 
