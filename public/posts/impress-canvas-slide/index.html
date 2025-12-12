@@ -1,0 +1,435 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Implementing Canvas Slide in Impress &middot; Mohit Marathe</title>
+    <meta name="title" content="Implementing Canvas Slide in Impress &middot; Mohit Marathe" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="https://mohit-marathe.github.io/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://mohit-marathe.github.io/css/main.bundle.min.a645f3fa02b2ca20e7ef61b236048d95cc9bc2e5b2faf1f0ac0aa85431187c1c.css"
+    integrity="sha256-pkXz&#43;gKyyiDn72GyNgSNlcybwuWy&#43;vHwrAqoVDEYfBw="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="https://mohit-marathe.github.io/posts/impress-canvas-slide/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://mohit-marathe.github.io/posts/impress-canvas-slide/">
+  <meta property="og:site_name" content="Mohit Marathe">
+  <meta property="og:title" content="Implementing Canvas Slide in Impress">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-12T11:30:52+05:30">
+    <meta property="article:modified_time" content="2025-12-12T11:30:52+05:30">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Implementing Canvas Slide in Impress">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Implementing Canvas Slide in Impress",
+    "headline": "Implementing Canvas Slide in Impress",
+    
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/mohit-marathe.github.io\/posts\/impress-canvas-slide\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-12T11:30:52\u002b05:30",
+    "datePublished": "2025-12-12T11:30:52\u002b05:30",
+    
+    "dateModified": "2025-12-12T11:30:52\u002b05:30",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "505"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://mohit-marathe.github.io/",
+       "name": "Mohit Marathe",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://mohit-marathe.github.io/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Implementing Canvas Slide in Impress",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Mohit Marathe</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                
+                
+              
+            </li>
+          
+            
+              
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Implementing Canvas Slide in Impress
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-12 11:30:52 &#43;0530 IST">12 December 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <h2 id="overview" class="relative group">Overview <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#</a></span></h2><p>With <a href="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/" target="_blank" rel="noreferrer">support for differently-sized slides</a> now in place, the next step towards implementing
+<a href="https://nlnet.nl/project/InfiniteCanvas/" target="_blank" rel="noreferrer">Infinite Canvas</a> in <a href="https://www.collaboraonline.com/" target="_blank" rel="noreferrer">Collabora Online</a> was to create the canvas slide itself.
+This new slide type allows slides to be arranged freely on an expansive canvas, as well as presenting the overall outline of the whole presentation in a visual way which users can intuitively grasp.</p>
+<p>Thanks to <a href="https://nlnet.nl/" target="_blank" rel="noreferrer">nlnet Foundation</a> for sponsoring this project!</p>
+<h2 id="how-it-works" class="relative group">How it works? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-it-works" aria-label="Anchor">#</a></span></h2><p>An uno command <code>.uno:InsertCanvasSlide</code> was created <a href="#commit-1">[1]</a>, which when dispatched will insert canvas slide at the top. The canvas slide contains page previews of all the slides, which initially is arranged as a grid at the center of the canvas <a href="#commit-2">[2]</a>.
+Since users are free to move the page previews, it helps to have some kind of a visual indicator for the page order. Hence, all the previews are connected by connectors ending with arrows for denoting the order <a href="#commit-?">[?]</a>.
+It also allows changing the order of the slides based on the position of the previews. So by moving the previews, and then dispatching <code>.uno:ReshufflePages</code> will change the order of the slides in the presentation.
+For allowing quick editing (instead of scrolling the slide sorter to find the correct page), double clicking on a preview will switch to that page <a href="#commit-4">[4]</a>.</p>
+<p>Since the canvas page is a &ldquo;special&rdquo; slide, some work needed to be done in export and import logic. For exporting to <code>.odp</code>, a &ldquo;HasCanvasPage&rdquo; property was added to <code>settings.xml</code> (this way we don&rsquo;t need to modify the ODF specs) <a href="#commit-6">[6]</a>.
+The &ldquo;HasCanvasPage&rdquo; property will be processed while importing , such that it will validate the canvas slide, and repair it if necessary <a href="#commit-5">[5]</a>.
+Importing page previews inside canvas pages also needed some special handling as while adding those shapes their corresponding pages does not exist (as canvas slide is the first slide) <a href="#commit-8">[8]</a>.</p>
+<p>Now that all the functionalities are in place, next part is about ergonomics.
+Since canvas slide is unusually larger than other normal slides, it makes sense to have a different zoom for canvas slide than the rest of the slides <a href="#commit-6">[6]</a>.
+And due to the same reason, its quite useful to remember the last visible part of the canvas page (otherwise users would need to scroll the large canvas page to reach the desired part) <a href="#commit-7">[7]</a></p>
+<p>Also, after creating the canvas page, the view will be set to the center of the canvas slide (as initially all the previews are at the center) <a href="#commit-?">[?]</a></p>
+<p>Some core.git patches implementing new features:</p>
+<p><a id="commit-1"></a>[1] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192319" target="_blank" rel="noreferrer">sd: add uno command for inserting a canvas page</a></p>
+<p><a id="commit-2"></a>[2] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192767" target="_blank" rel="noreferrer">sd: populate page previews grid in canvas page</a></p>
+<p><a id="commit-3"></a>[3] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192940" target="_blank" rel="noreferrer">192940: sd: add support for shuffling slides from canvas page</a></p>
+<p><a id="commit-4"></a>[4] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193861" target="_blank" rel="noreferrer">sd: switch to corresponding page on double clicking page preview</a></p>
+<p><a id="commit-5"></a>[5] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193243" target="_blank" rel="noreferrer">sd: store &ldquo;HasCanvasPage&rdquo; boolean in settings.xml</a></p>
+<p><a id="commit-6"></a>[6] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193459" target="_blank" rel="noreferrer">sd: remember canvas page zoom</a></p>
+<p><a id="commit-7"></a>[7] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193862" target="_blank" rel="noreferrer">sd: remember last client visible area of canvas page</a></p>
+<p><a id="commit-8"></a>[8] <a href="https://gerrit.libreoffice.org/c/core/&#43;/195076" target="_blank" rel="noreferrer">xmloff: sd: handle import of page shapes that are inside canvas page</a></p>
+<p><a id="commit-9"></a>[9] <a href="https://gerrit.libreoffice.org/c/core/&#43;/195466" target="_blank" rel="noreferrer">sd: lok: send CanvasPageCenter command to client on canvas page creation</a></p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+    <div class="place-self-center">
+      
+      
+      <div class="text-2xl sm:text-lg">
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="https://mohit-marathe.github.io/posts/impress-multiple-slide-size/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Supporting Per-Slide Size Support in Impress</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-27 18:30:52 &#43;0530 IST">27 October 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            © 2025, Mohit Marathe. All rights reserved.
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

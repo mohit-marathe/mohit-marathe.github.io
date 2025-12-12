@@ -51,7 +51,7 @@ force it to re-render each time the user switched to a different-sized slide, wh
 
 ## Demo
 
-<video width="640" height="360" controls>
+<video width="1280" height="720" controls>
   <source src="demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>

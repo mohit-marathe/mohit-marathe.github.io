@@ -401,7 +401,7 @@ to communicate with LibreOffice (see <a href="https://sdk.collaboraonline.com/do
 The initial solution was to trick the client that the document has been resized when it switched to a page having differnt size, so that it would render the page properly, but there was a side-effect. It invalidated all the previews in the slide-sorter which would
 force it to re-render each time the user switched to a different-sized slide, which is unnecessary and quite expensive. So the idea is to send a status update which the client would handle by setting the correct view size for the page <a href="#commit-3">[3]</a>,
 <a href="#commit-4">[4]</a>, <a href="#commit-5">[5]</a>.</p>
-<h2 id="demo" class="relative group">Demo <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#demo" aria-label="Anchor">#</a></span></h2><video width="640" height="360" controls>
+<h2 id="demo" class="relative group">Demo <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#demo" aria-label="Anchor">#</a></span></h2><video width="1280" height="720" controls>
   <source src="demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -433,6 +433,40 @@ force it to re-render each time the user switched to a different-sized slide, wh
       
 
       
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="https://mohit-marathe.github.io/posts/impress-canvas-slide/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Implementing Canvas Slide in Impress</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-12-12 11:30:52 &#43;0530 IST">12 December 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
   
 
 
