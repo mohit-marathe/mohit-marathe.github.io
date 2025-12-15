@@ -116,7 +116,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "505"
+    "wordCount": "576"
   }
   </script>
     
@@ -299,19 +299,31 @@
 <a href="https://nlnet.nl/project/InfiniteCanvas/" target="_blank" rel="noreferrer">Infinite Canvas</a> in <a href="https://www.collaboraonline.com/" target="_blank" rel="noreferrer">Collabora Online</a> was to create the canvas slide itself.
 This new slide type allows slides to be arranged freely on an expansive canvas, as well as presenting the overall outline of the whole presentation in a visual way which users can intuitively grasp.</p>
 <p>Thanks to <a href="https://nlnet.nl/" target="_blank" rel="noreferrer">nlnet Foundation</a> for sponsoring this project!</p>
-<h2 id="how-it-works" class="relative group">How it works? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-it-works" aria-label="Anchor">#</a></span></h2><p>An uno command <code>.uno:InsertCanvasSlide</code> was created <a href="#commit-1">[1]</a>, which when dispatched will insert canvas slide at the top. The canvas slide contains page previews of all the slides, which initially is arranged as a grid at the center of the canvas <a href="#commit-2">[2]</a>.
-Since users are free to move the page previews, it helps to have some kind of a visual indicator for the page order. Hence, all the previews are connected by connectors ending with arrows for denoting the order <a href="#commit-?">[?]</a>.
-It also allows changing the order of the slides based on the position of the previews. So by moving the previews, and then dispatching <code>.uno:ReshufflePages</code> will change the order of the slides in the presentation.
-For allowing quick editing (instead of scrolling the slide sorter to find the correct page), double clicking on a preview will switch to that page <a href="#commit-4">[4]</a>.</p>
+<h2 id="how-it-works" class="relative group">How it works? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-it-works" aria-label="Anchor">#</a></span></h2><p>An uno command <code>.uno:InsertCanvasSlide</code> was created <a href="#commit-1">[1]</a>, which when dispatched will insert canvas slide at the top. The canvas slide contains page previews of all the slides, which initially is arranged as a grid at the center of the canvas <a href="#commit-2">[2]</a>.</p>
+<video width="1280" height="720" controls>
+  <source src="create-canvas-slide-2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p>Since users are free to move the page previews, it helps to have some kind of a visual indicator for the page order. Hence, all the previews are connected by connectors ending with arrows for denoting the order <a href="#commit-?">[?]</a>.
+It also allows changing the order of the slides based on the position of the previews. So by moving the previews, and then dispatching <code>.uno:ReshufflePages</code> will change the order of the slides in the presentation.</p>
+<video width="1280" height="720" controls>
+  <source src="reshuffle-pages.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p>For allowing quick editing (instead of scrolling the slide sorter to find the correct page), double clicking on a preview will switch to that page <a href="#commit-4">[4]</a>.</p>
+<video width="1280" height="720" controls>
+  <source src="double-click-preview.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <p>Since the canvas page is a &ldquo;special&rdquo; slide, some work needed to be done in export and import logic. For exporting to <code>.odp</code>, a &ldquo;HasCanvasPage&rdquo; property was added to <code>settings.xml</code> (this way we don&rsquo;t need to modify the ODF specs) <a href="#commit-6">[6]</a>.
 The &ldquo;HasCanvasPage&rdquo; property will be processed while importing , such that it will validate the canvas slide, and repair it if necessary <a href="#commit-5">[5]</a>.
-Importing page previews inside canvas pages also needed some special handling as while adding those shapes their corresponding pages does not exist (as canvas slide is the first slide) <a href="#commit-8">[8]</a>.</p>
+Importing page previews inside canvas pages also needed some special handling as while adding those shapes their corresponding pages does not exist (as canvas slide is the first slide) <a href="#commit-8">[8]</a>.
+Also, to ensure that the canvas page remains at the top, special handling was required for it <a href="#commit-10">[10]</a></p>
 <p>Now that all the functionalities are in place, next part is about ergonomics.
 Since canvas slide is unusually larger than other normal slides, it makes sense to have a different zoom for canvas slide than the rest of the slides <a href="#commit-6">[6]</a>.
 And due to the same reason, its quite useful to remember the last visible part of the canvas page (otherwise users would need to scroll the large canvas page to reach the desired part) <a href="#commit-7">[7]</a></p>
-<p>Also, after creating the canvas page, the view will be set to the center of the canvas slide (as initially all the previews are at the center) <a href="#commit-?">[?]</a></p>
-<p>Some core.git patches implementing new features:</p>
-<p><a id="commit-1"></a>[1] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192319" target="_blank" rel="noreferrer">sd: add uno command for inserting a canvas page</a></p>
+<p>Also, after creating the canvas page, the view will be set to the center of the canvas slide (as initially all the previews are at the center) <a href="#commit-9">[9]</a></p>
+<h2 id="related-patches" class="relative group">Related patches <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#related-patches" aria-label="Anchor">#</a></span></h2><h3 id="some-coregit-patches-implementing-new-features" class="relative group">Some core.git patches implementing new features: <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#some-coregit-patches-implementing-new-features" aria-label="Anchor">#</a></span></h3><p><a id="commit-1"></a>[1] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192319" target="_blank" rel="noreferrer">sd: add uno command for inserting a canvas page</a></p>
 <p><a id="commit-2"></a>[2] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192767" target="_blank" rel="noreferrer">sd: populate page previews grid in canvas page</a></p>
 <p><a id="commit-3"></a>[3] <a href="https://gerrit.libreoffice.org/c/core/&#43;/192940" target="_blank" rel="noreferrer">192940: sd: add support for shuffling slides from canvas page</a></p>
 <p><a id="commit-4"></a>[4] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193861" target="_blank" rel="noreferrer">sd: switch to corresponding page on double clicking page preview</a></p>
@@ -320,6 +332,14 @@ And due to the same reason, its quite useful to remember the last visible part o
 <p><a id="commit-7"></a>[7] <a href="https://gerrit.libreoffice.org/c/core/&#43;/193862" target="_blank" rel="noreferrer">sd: remember last client visible area of canvas page</a></p>
 <p><a id="commit-8"></a>[8] <a href="https://gerrit.libreoffice.org/c/core/&#43;/195076" target="_blank" rel="noreferrer">xmloff: sd: handle import of page shapes that are inside canvas page</a></p>
 <p><a id="commit-9"></a>[9] <a href="https://gerrit.libreoffice.org/c/core/&#43;/195466" target="_blank" rel="noreferrer">sd: lok: send CanvasPageCenter command to client on canvas page creation</a></p>
+<p><a id="commit-10"></a>[10] <a href="https://gerrit.libreoffice.org/c/core/&#43;/194773" target="_blank" rel="noreferrer">sd: make sure canvas page remains as the first page</a></p>
+<p>All the core.git patches can be found here:</p>
+<p><a href="https://gerrit.libreoffice.org/q/topic:%22infinite-canvas%22" target="_blank" rel="noreferrer">https://gerrit.libreoffice.org/q/topic:"infinite-canvas"</a></p>
+<h3 id="some-onlinegit-prs" class="relative group">Some online.git PRs: <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#some-onlinegit-prs" aria-label="Anchor">#</a></span></h3><ul>
+<li><a href="https://github.com/CollaboraOnline/online/pull/13434" target="_blank" rel="noreferrer">https://github.com/CollaboraOnline/online/pull/13434</a></li>
+<li><a href="https://github.com/CollaboraOnline/online/pull/13676" target="_blank" rel="noreferrer">https://github.com/CollaboraOnline/online/pull/13676</a></li>
+<li><a href="https://github.com/CollaboraOnline/online/pull/13799" target="_blank" rel="noreferrer">https://github.com/CollaboraOnline/online/pull/13799</a></li>
+</ul>
 
       </div>
     </section>
