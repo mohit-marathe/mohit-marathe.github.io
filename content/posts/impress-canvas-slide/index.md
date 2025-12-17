@@ -48,6 +48,11 @@ And due to the same reason, its quite useful to remember the last visible part o
 
 Also, after creating the canvas page, the view will be set to the center of the canvas slide (as initially all the previews are at the center) [[9]](#commit-9)
 
+### Github Issue and test document
+
+- Github Issue: https://github.com/CollaboraOnline/online/issues/13863
+- Test Document: [canvas_slide_demo.odp](https://github.com/user-attachments/files/24205042/canvas_slide_demo.odp)
+
 ## Related patches
 
 ### Some core.git patches implementing new features:
